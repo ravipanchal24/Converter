@@ -1,0 +1,91 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: monospace;
+}
+
+body{
+    background-image: linear-gradient(150deg, #f45b5b, #1F85DE);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+}
+
+.mainContainer
+{
+    width: 500px;
+    height: 600px;
+    display: block;
+    border-radius: 15px;
+}
+
+.uppperContainer
+{
+    height: 50%;
+    background-image: linear-gradient(-150deg, #f78080,#f45b5b);
+    display: block;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px; 
+}
+
+.unitTypeDropdown > div
+{
+        color: white;
+        width: 50%;
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+        font-size: 60px;
+}
+
+.inputNumber
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.inputValue
+{
+    font-size:35px;
+    height: 80px;
+    width: 160px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid white ;
+    color: white;
+    outline: none;
+    letter-spacing: 1.5px;
+    overflow: hidden;
+}
+
+.lowerContainer
+{
+    height: 50%;
+    background-image: linear-gradient(-150deg, #1F85DE,#99b4cc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px; 
+}
+
+.outputValue
+{
+    font-size:35px;
+    height: 80px;
+    width: 160px;
+    border-bottom: 1px solid white ;
+    color: white;
+    letter-spacing: 1.5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
