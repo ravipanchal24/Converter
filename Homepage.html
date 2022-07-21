@@ -7,28 +7,85 @@
         <meta name="viewport" content="width=device-width, intial-scale=1.0">
         <link rel="stylesheet" href="homepage.css">
     </head>
-    <body>
+    <body onload="unitChange()">
         <div class="mainContainer">
             <div class="uppperContainer">
-                <div class="currentDate" style="margin: 15px 0 0 15px;">
-                    Jul 07, 2022
+                <div class="currentDate">
+                    <span id="currentDateSpan">
+                        Jul 15, 2022
+                    </span>  
                 </div>
-                <div class="unitTypeDropdown">
-                    <div id="unitTypes">Currency</div>
-                    <!-- <div id="unitTypes">Length</div>
-                    <div id="unitTypes">Mass</div>
-                    <div id="unitTypes">Temperature</div> -->
-                </div>
-                <div class="inputNumber">
-                    <input type="text" class="inputValue"> 
+                <div class="upperOuterContainer">
+                    <div class="upperInnerContainer">
+                        <select id="unitTypeDropdown" onchange="unitChange()">
+                            <option value="currency">Currency</option>
+                            <option value="mass">Mass</option>
+                            <option value="length">Length</option>
+                            <option value="temperature">Temperature</option>
+                        </select>
+                        <div class="secondContainer">
+                            <div class="inputNumber">
+                                <input type="text" id="inputValue" autofocus onkeyup="unitChange()"> 
+                            </div>
+                            <select class = "unitTypeDropdownOptions" id = "currencyOptions" onchange="unitChange()">
+                                <option value="U.S. Dollar">U.S. Dollar</option>
+                                <option value="Indian Rupee">Indian Rupee</option>
+                                <option value="Euro">Euro</option>
+                                <option value="Pound">Pound</option>
+                            </select>
+                            <select class = "unitTypeDropdownOptions" id = "massOptions" onchange="unitChange()">
+                                <option value="Kilogram">Kilogram</option>
+                                <option value="Gram">Gram</option>
+                                <option value="Pound">Pound</option>
+                                <option value="Ounce">Ounce</option>
+                            </select>
+                            <select class = "unitTypeDropdownOptions" id = "lengthOptions" onchange="unitChange()">
+                                <option value="Meter">Meter</option>
+                                <option value="Centimeter">Centimeter</option>
+                                <option value="Feet">Feet</option>
+                                <option value="Inches">Inches</option>
+                            </select>
+                            <select class = "unitTypeDropdownOptions" id = "tempOptions" onchange="unitChange()">
+                                <option value="Celsius">Celsius</option>
+                                <option value="Kelvin">Kelvin</option>
+                                <option value="Fahrenheit">Fahrenheit</option>
+                            </select>
+                         </div>
+                    </div>
                 </div>
             </div>
             <div class="lowerContainer">
-                <div class="outputValue">
-                    100
-                </div>
+                <div class="secondContainer">
+                    <div id="outputValue">
+                        
+                    </div>
+                    <select class = "unitTypeDropdownOptions" id = "currencyOptionsLower" onchange="unitChange()">
+                        <option value="Indian Rupee">Indian Rupee</option>
+                        <option value="U.S. Dollar">U.S. Dollar</option>
+                        <option value="Euro">Euro</option>
+                        <option value="Pound">Pound</option>
+                    </select>
+                    <select class = "unitTypeDropdownOptions" id = "massOptionsLower" onchange="unitChange()">
+                        <option value="Gram">Gram</option>
+                        <option value="Kilogram">Kilogram</option>
+                        <option value="Pound">Pound</option>
+                        <option value="Ounce">Ounce</option>
+                    </select>
+                    <select class = "unitTypeDropdownOptions" id = "lengthOptionsLower" onchange="unitChange()">
+                        <option value="Centimeter">Centimeter</option>
+                        <option value="Meter">Meter</option>
+                        <option value="Feet">Feet</option>
+                        <option value="Inches">Inches</option>
+                    </select>
+                    <select class = "unitTypeDropdownOptions" id = "tempOptionsLower" onchange="unitChange()">
+                        <option value="Fahrenheit">Fahrenheit</option>
+                        <option value="Celsius">Celsius</option>
+                        <option value="Kelvin">Kelvin</option>
+                    </select>
+                </div>  
             </div>
         </div>
-     <script src="script.js"></script>
+     <script src="script.js">
+     </script>
     </body>
 </html> 

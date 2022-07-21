@@ -1,95 +1,104 @@
-const value = document.querySelector('#value');
-value.style.width='max-content';
-
-
-function Myfunction()
+const date = new Date();
+const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+document.getElementById("currentDateSpan").innerHTML = month[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
+function unitChange()
 {
-    
-    const unit = document.querySelector('#unittype').value;
-    const a = document.querySelector('#value');
+ 
+    document.getElementById("inputValue").focus();
+    let userInput = document.getElementById("inputValue").value;
 
-if(unit === "Select Unit")
-{
-    a.placeholder="Enter value..";
-
-    const x = document.querySelector('#first');
-    x.textContent=`Unit 1`;
-
-    const y = document.querySelector('#second');
-    y.textContent=`Unit 2`;
-
-    const z = document.querySelector('#third');
-    z.textContent=`Unit 3`;
-
-}
-else if(unit === "Length")
-{
-    
-    a.placeholder="Enter value in meters";
-
-    const x = document.querySelector('#first');
-    x.textContent=`${(a.value*39.37).toFixed(2)} Inches`;
-
-    const y = document.querySelector('#second');
-    y.textContent=`${(a.value*100).toFixed(2)} Centimeters`;
-
-    const z = document.querySelector('#third');
-    z.textContent=`${(a.value*3.28).toFixed(2)} Feet`;
-}
-
-else if(unit === "Mass")
-{
-    a.placeholder='Enter value in Kilograms';
-
-    const x = document.querySelector('#first');
-    x.textContent=`${(a.value*1000).toFixed(2)} Grams`;
-
-    const y = document.querySelector('#second');
-    y.textContent=`${(a.value*2.204).toFixed(2)} Pounds`;
-
-    const z = document.querySelector('#third');
-    z.textContent=`${(a.value*35.27).toFixed(2)} Ounces`;
-}
-
-else if(unit === "Currency")
-{
-    a.placeholder='Enter value in Dollars';
-
-    const x = document.querySelector('#first');
-    x.textContent=`${(a.value*73.26).toFixed(2)} Rupee`;
-
-    const y = document.querySelector('#second');
-    y.textContent=`${(a.value*0.74).toFixed(2)} Pounds`;
-
-    const z = document.querySelector('#third');
-    z.textContent=`${(a.value*0.83).toFixed(2)} Euros`;
-}
-
-else if(unit === "Temperature")
-{
-    a.placeholder='Enter value in Celsius';
-
-    if(a.value.length===0)
+    let currentSelectedUnit = document.getElementById("unitTypeDropdown").value;
+    if(currentSelectedUnit == "currency")
     {
-        const x = document.querySelector('#first');
-        x.textContent=`0° Celsius`;
-    
-        const y = document.querySelector('#second');
-        y.textContent=`0° Farenhiet`;
-    
-        const z = document.querySelector('#third');
-        z.textContent=`0 Kelvin`;
+        document.getElementById("currencyOptions").style.display = "block";
+        document.getElementById("massOptions").style.display = "none";
+        document.getElementById("lengthOptions").style.display = "none";
+        document.getElementById("tempOptions").style.display = "none";  
+
+        document.getElementById("currencyOptionsLower").style.display = "block";
+        document.getElementById("massOptionsLower").style.display = "none";
+        document.getElementById("lengthOptionsLower").style.display = "none";
+        document.getElementById("tempOptionsLower").style.display = "none";  
+
+        upperUnit = document.getElementById("currencyOptions").value;
+        lowerUnit = document.getElementById("currencyOptionsLower").value;
+
+       if(upperUnit == "U.S. Dollar")
+       {
+           if(lowerUnit == "Indian Rupee")
+           {
+               document.getElementById("outputValue").innerText = (userInput * 79.88);
+           }
+           else if(lowerUnit == "U.S. Dollar")
+           {
+               document.getElementById("outputValue").innerText = (userInput * 1);
+           }
+           if(lowerUnit == "Euro")
+           {
+               document.getElementById("outputValue").innerText = (userInput * 0.98);
+           }
+           if(lowerUnit == "Pound")
+           {
+               document.getElementById("outputValue").innerText = (userInput * 0.84);
+           }
+       }
+
+       else if(upperUnit == "Indian Rupee")
+       {
+           if(lowerUnit == "Indian Rupee")
+           {
+               document.getElementById("outputValue").innerText = (userInput * 1);
+           }
+           else if(lowerUnit == "U.S. Dollar")
+           {
+               document.getElementById("outputValue").innerText = (userInput * 0.013);
+           }
+           if(lowerUnit == "Euro")
+           {
+               document.getElementById("outputValue").innerText = (userInput * 0.012);
+           }
+           if(lowerUnit == "Pound")
+           {
+               document.getElementById("outputValue").innerText = (userInput * 0.010);
+           }
+       }
+
+
     }
+    else if(currentSelectedUnit == "mass")
+    {
+        document.getElementById("currencyOptions").style.display = "none";
+        document.getElementById("massOptions").style.display = "block";
+        document.getElementById("lengthOptions").style.display = "none";
+        document.getElementById("tempOptions").style.display = "none";  
 
-    else {
-    const x = document.querySelector('#first');
-    x.textContent=`${(a.value)}° Celsius`;
-
-    const y = document.querySelector('#second');
-    y.textContent=`${(((a.value*(9/5))+32)).toFixed(2)}° Farenhiet`;
-
-    const z = document.querySelector('#third');
-    z.textContent=`${parseInt(a.value) + Number('273.15')} Kelvin`;
+        document.getElementById("currencyOptionsLower").style.display = "none";
+        document.getElementById("massOptionsLower").style.display = "block";
+        document.getElementById("lengthOptionsLower").style.display = "none";
+        document.getElementById("tempOptionsLower").style.display = "none";    
     }
- }
+    if(currentSelectedUnit == "length")
+    {
+        document.getElementById("currencyOptions").style.display = "none";
+        document.getElementById("massOptions").style.display = "none";
+        document.getElementById("lengthOptions").style.display = "block";
+        document.getElementById("tempOptions").style.display = "none";  
+
+        document.getElementById("currencyOptionsLower").style.display = "none";
+        document.getElementById("massOptionsLower").style.display = "none";
+        document.getElementById("lengthOptionsLower").style.display = "block";
+        document.getElementById("tempOptionsLower").style.display = "none";  
+    }
+    if(currentSelectedUnit == "temperature")
+    {
+        document.getElementById("currencyOptions").style.display = "none";
+        document.getElementById("massOptions").style.display = "none";
+        document.getElementById("lengthOptions").style.display = "none";
+        document.getElementById("tempOptions").style.display = "block";  
+
+        document.getElementById("currencyOptionsLower").style.display = "none";
+        document.getElementById("massOptionsLower").style.display = "none";
+        document.getElementById("lengthOptionsLower").style.display = "none";
+        document.getElementById("tempOptionsLower").style.display = "block";  
+    }
 }
